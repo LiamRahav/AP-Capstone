@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AP-Capstone:jar">
+    <output-path>$USER_HOME$/Downloads</output-path>
+    <root id="archive" name="echo.jar">
+      <element id="module-output" name="AP-Capstone" />
+    </root>
+  </artifact>
+</component>
