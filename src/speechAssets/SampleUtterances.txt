@@ -22,8 +22,8 @@ GetMessagesIntent did you get any messages for me?
 GetMessagesIntent what are my messages?
 GetMessagesIntent tell me my messages
 
-LeaveMessageIntent  {Message}
-LeaveMessageIntent  my message is {Message}
+LeaveMessageIntent  {feed the dog|Message}
+LeaveMessageIntent  my message is {feed the dog|Message}
 
 ConfirmMessageIntent  {Confirmation}
 ConfirmMessageIntent  {Confirmation}
