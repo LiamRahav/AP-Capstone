@@ -14,12 +14,12 @@ RequestLeaveMessageIntent give message to {Username}
 RequestLeaveMessageIntent give {Username} a message
 
 GetMessagesIntent check my messages
-GetMessagesIntent do I have any messages?
-GetMessagesIntent are there any message for me?
-GetMessagesIntent are there any messages?
-GetMessagesIntent do I have messages?
-GetMessagesIntent did you get any messages for me?
-GetMessagesIntent what are my messages?
+GetMessagesIntent do I have any messages
+GetMessagesIntent are there any message for me
+GetMessagesIntent are there any messages
+GetMessagesIntent do I have messages
+GetMessagesIntent did you get any messages for me
+GetMessagesIntent what are my messages
 GetMessagesIntent tell me my messages
 
 LeaveMessageIntent  {feed the dog|Message}
