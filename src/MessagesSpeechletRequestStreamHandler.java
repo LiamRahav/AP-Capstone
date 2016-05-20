@@ -12,7 +12,7 @@ public final class MessagesSpeechletRequestStreamHandler extends SpeechletReques
 
     static {
         supportedApplicationIds = new HashSet<String>();
-        supportedApplicationIds.add(""); // TODO Fill in the app ID
+        supportedApplicationIds.add("amzn1.echo-sdk-ams.app.b1367079-8c90-4278-b7f2-4e7831ad595e");
     }
 
     public MessagesSpeechletRequestStreamHandler() {
