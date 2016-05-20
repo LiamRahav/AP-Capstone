@@ -1,0 +1,37 @@
+LogInIntent {Username}
+LogInIntent my name is {Username}
+LogInIntent I'm {Username}
+LogInIntent this is {Username}
+LogInIntent It is {Username}
+LogInIntent It's {Username}
+
+RequestLeaveMessageIntent leave a message for {Username}
+RequestLeaveMessageIntent leave message for {Username}
+RequestLeaveMessageIntent message for {Username}
+RequestLeaveMessageIntent to {Username}
+RequestLeaveMessageIntent message to {Username}
+RequestLeaveMessageIntent give message to {Username}
+RequestLeaveMessageIntent give {Username} a message
+
+GetMessagesIntent check my messages
+GetMessagesIntent do I have any messages?
+GetMessagesIntent are there any message for me?
+GetMessagesIntent are there any messages?
+GetMessagesIntent do I have messages?
+GetMessagesIntent did you get any messages for me?
+GetMessagesIntent what are my messages?
+GetMessagesIntent tell me my messages
+
+LeaveMessageIntent  {Message}
+LeaveMessageIntent  my message is {Message}
+
+ConfirmMessageIntent  {Confirmation}
+ConfirmMessageIntent  {Confirmation}
+
+DeleteMessageIntent delete
+DeleteMessageIntent delete message
+
+NextMessageIntent next
+NextMessageIntent next message
+
+ReplyMessageIntent reply

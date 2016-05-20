@@ -1,0 +1,61 @@
+{
+  "intents": [
+    {
+      "intent": "LogInIntent",
+      "slots": [
+        {
+          "name": "Username",
+          "type": "LIST_OF_USERNAMES"
+        }
+      ]
+    },
+    {
+      "intent": "RequestLeaveMessageIntent",
+      "slots": [
+        {
+          "name": "Username",
+          "type": "LIST_OF_USERNAMES"
+        }
+      ]
+    },
+    {
+      "intent": "GetMessagesIntent"
+    },
+    {
+      "intent": "LeaveMessageIntent",
+      "slots": [
+        {
+          "name": "Message",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "ConfirmMessageIntent",
+      "slots": [
+        {
+          "name": "Confirmation",
+          "type": "LIST_OF_CONFIRMATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "DeleteMessageIntent"
+    },
+    {
+      "intent": "NextMessageIntent"
+    },
+    {
+      "intent": "ReplyMessageIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
