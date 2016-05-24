@@ -7,8 +7,6 @@
 
     or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
-package scorekeeper;
-
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.SortedMap;
@@ -29,10 +27,10 @@ import com.amazon.speech.ui.SimpleCard;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 
 /**
- * The {@link ScoreKeeperManager} receives various events and intents and manages the flow of the
+ * The {@link BirthdaysManager} receives various events and intents and manages the flow of the
  * game.
  */
-public class ScoreKeeperManager {
+public class BirthdaysManager {
     /**
      * Intent slot for player name.
      */
@@ -50,7 +48,7 @@ public class ScoreKeeperManager {
 
     private final ScoreKeeperDao scoreKeeperDao;
 
-    public ScoreKeeperManager(final AmazonDynamoDBClient amazonDynamoDbClient) {
+    public BirthdaysManager(final AmazonDynamoDBClient amazonDynamoDbClient) {
         ScoreKeeperDynamoDbClient dynamoDbClient =
                 new ScoreKeeperDynamoDbClient(amazonDynamoDbClient);
         scoreKeeperDao = new ScoreKeeperDao(dynamoDbClient);
