@@ -11,11 +11,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.SortedMap;
 
-import scorekeeper.storage.ScoreKeeperDao;
-import scorekeeper.storage.ScoreKeeperDynamoDbClient;
-import scorekeeper.storage.ScoreKeeperGame;
-import scorekeeper.storage.ScoreKeeperGameData;
-
 import com.amazon.speech.slu.Intent;
 import com.amazon.speech.speechlet.LaunchRequest;
 import com.amazon.speech.speechlet.Session;
@@ -25,6 +20,8 @@ import com.amazon.speech.ui.PlainTextOutputSpeech;
 import com.amazon.speech.ui.Reprompt;
 import com.amazon.speech.ui.SimpleCard;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import storage.Birthday;
+import storage.BirthdaysDynamoDbClient;
 
 /**
  * The {@link BirthdaysManager} receives various events and intents and manages the flow of the
@@ -34,24 +31,19 @@ public class BirthdaysManager {
     /**
      * Intent slot for player name.
      */
-    private static final String SLOT_PLAYER_NAME = "PlayerName";
+    private static final String NAME = "Name";
 
     /**
      * Intent slot for player score.
      */
-    private static final String SLOT_SCORE_NUMBER = "ScoreNumber";
+    private static final String BIRTHDAY = "Birthday";
 
-    /**
-     * Maximum number of players for which scores must be announced while adding a score.
-     */
-    private static final int MAX_PLAYERS_FOR_SPEECH = 3;
+    private BirthdaysDynamoDbClient dynamoDbClient;
 
-    private final ScoreKeeperDao scoreKeeperDao;
+
 
     public BirthdaysManager(final AmazonDynamoDBClient amazonDynamoDbClient) {
-        ScoreKeeperDynamoDbClient dynamoDbClient =
-                new ScoreKeeperDynamoDbClient(amazonDynamoDbClient);
-        scoreKeeperDao = new ScoreKeeperDao(dynamoDbClient);
+        dynamoDbClient = new BirthdaysDynamoDbClient(amazonDynamoDbClient);
     }
 
     /**
@@ -63,7 +55,7 @@ public class BirthdaysManager {
      *            Speechlet {@link Session} for this request
      * @return response for launch request
      */
-    public SpeechletResponse getLaunchResponse(LaunchRequest request, Session session) {
+    /*public SpeechletResponse getLaunchResponse(LaunchRequest request, Session session) {
         // Speak welcome message and ask user questions
         // based on whether there are players or not.
         String speechText, repromptText;
@@ -96,7 +88,7 @@ public class BirthdaysManager {
      *            {@link SkillContext} for this request
      * @return response for the new game intent.
      */
-    public SpeechletResponse getNewGameIntentResponse(Session session, SkillContext skillContext) {
+    /*public SpeechletResponse getNewGameIntentResponse(Session session, SkillContext skillContext) {
         ScoreKeeperGame game = scoreKeeperDao.getScoreKeeperGame(session);
 
         if (game == null) {
@@ -121,7 +113,7 @@ public class BirthdaysManager {
         } else {
             return getTellSpeechletResponse(speechText);
         }
-    }
+    }*/
 
     /**
      * Creates and returns response for the add player intent.
@@ -133,23 +125,22 @@ public class BirthdaysManager {
      * @param skillContext
      * @return response for the add player intent.
      */
-    public SpeechletResponse getAddPlayerIntentResponse(Intent intent, Session session,
+    public SpeechletResponse getAddBirthdayIntentResponse(Intent intent, Session session,
             SkillContext skillContext) {
         // add a player to the current game,
         // terminate or continue the conversation based on whether the intent
         // is from a one shot command or not.
-        String newPlayerName =
-                ScoreKeeperTextUtil.getPlayerName(intent.getSlot(SLOT_PLAYER_NAME).getValue());
-        if (newPlayerName == null) {
-            String speechText = "OK. Who do you want to add?";
+        String newBirthdayName = null;
+        if (intent.getSlot(NAME).getValue() == null || intent.getSlot(NAME).getValue().isEmpty())
+            newBirthdayName = null;
+        if (newBirthdayName == null) {
+            String speechText = "OK. Whose birthday do you want to add?";
             return getAskSpeechletResponse(speechText, speechText);
         }
 
-        // Load the previous game
-        ScoreKeeperGame game = scoreKeeperDao.getScoreKeeperGame(session);
-        if (game == null) {
-            game = ScoreKeeperGame.newInstance(session, ScoreKeeperGameData.newInstance());
-        }
+        Birthday newBirthday = new Birthday(newBirthdayName, "");
+        dynamoDbClient.saveBirthday(newBirthday);
+
 
         game.addPlayer(newPlayerName);
 

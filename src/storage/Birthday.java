@@ -7,15 +7,11 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 @DynamoDBTable(tableName = "Birthdays")
 public class Birthday {
-    private String date;
     private String user;
+    private String date;
 
-    @DynamoDBHashKey(attributeName = "date")
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
+    public Birthday(String user, String date) {
+        this.user = user;
         this.date = date;
     }
 
@@ -26,5 +22,14 @@ public class Birthday {
 
     public void setUser(String user) {
         this.user = user;
+    }
+
+    @DynamoDBHashKey(attributeName = "date")
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
