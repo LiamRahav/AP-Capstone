@@ -7,6 +7,8 @@
 
     or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.SortedMap;
@@ -91,35 +93,14 @@ public class BirthdaysManager {
      */
     public SpeechletResponse getTellScoresIntentResponse(Intent intent, Session session) {
         // tells the scores in the leaderboard and send the result in card.
-        ArrayList<Birthday> todaysBirthdays = dynamoDbClient.loadBirthday()
+        ArrayList<Birthday> todaysBirthdays = dynamoDbClient.loadBirthday();
 
-        SortedMap<String, Long> sortedScores = game.getAllScoresInDescndingOrder();
-        String speechText = getAllScoresAsSpeechText(sortedScores);
-        Card leaderboardScoreCard = getLeaderboardScoreCard(sortedScores);
+        String speechText = getUsers(todaysBirthdays);
 
-        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+        PlainTextOutputSpeech speech = new PlainTextOutputSeech();
         speech.setText(speechText);
 
-        return SpeechletResponse.newTellResponse(speech, leaderboardScoreCard);
-    }
-
-    /**
-     * Creates and returns response for the reset players intent.
-     *
-     * @param intent
-     *            {@link Intent} for this request
-     * @param session
-     *            {@link Session} for this request
-     * @return response for the reset players intent
-     */
-    public SpeechletResponse getResetPlayersIntentResponse(Intent intent, Session session) {
-        // Remove all players
-        ScoreKeeperGame game =
-                ScoreKeeperGame.newInstance(session, ScoreKeeperGameData.newInstance());
-        scoreKeeperDao.saveScoreKeeperGame(game);
-
-        String speechText = "New game started without players. Who do you want to add first?";
-        return getAskSpeechletResponse(speechText, speechText);
+        return SpeechletResponse.newTellResponse(speech);
     }
 
     /**
@@ -135,10 +116,7 @@ public class BirthdaysManager {
      */
     public SpeechletResponse getHelpIntentResponse(Intent intent, Session session,
             SkillContext skillContext) {
-        return skillContext.needsMoreHelp() ? getAskSpeechletResponse(
-                ScoreKeeperTextUtil.COMPLETE_HELP + " So, how can I help?",
-                ScoreKeeperTextUtil.NEXT_HELP)
-                : getTellSpeechletResponse(ScoreKeeperTextUtil.COMPLETE_HELP);
+        return getTellSpeechletResponse("help needed");
     }
 
     /**
@@ -211,56 +189,16 @@ public class BirthdaysManager {
      * Converts a {@link Map} of scores into text for speech. The order of the entries in the text
      * is determined by the order of entries in {@link Map#entrySet()}.
      *
-     * @param scores
+     * @param birthdays
      *            A {@link Map} of scores
      * @return a speech ready text containing scores
      */
-    private String getAllScoresAsSpeechText(Map<String, Long> scores) {
+    private String getUsers(ArrayList<Birthday> birthdays) {
         StringBuilder speechText = new StringBuilder();
-        int index = 0;
-        for (Entry<String, Long> entry : scores.entrySet()) {
-            if (scores.size() > 1 && index == scores.size() - 1) {
-                speechText.append(" and ");
-            }
-            String singularOrPluralPoints = entry.getValue() == 1 ? " point, " : " points, ";
-            speechText
-                    .append(entry.getKey())
-                    .append(" has ")
-                    .append(entry.getValue())
-                    .append(singularOrPluralPoints);
-            index++;
+        for (Birthday birthday : birthdays) {
+            speechText.append(birthday.getUser());
+            speechText.append(" has a birthday today.");
         }
-
         return speechText.toString();
-    }
-
-    /**
-     * Creates and returns a {@link Card} with a formatted text containing all scores in the game.
-     * The order of the entries in the text is determined by the order of entries in
-     * {@link Map#entrySet()}.
-     *
-     * @param scores
-     *            A {@link Map} of scores
-     * @return leaderboard text containing all scores in the game
-     */
-    private Card getLeaderboardScoreCard(Map<String, Long> scores) {
-        StringBuilder leaderboard = new StringBuilder();
-        int index = 0;
-        for (Entry<String, Long> entry : scores.entrySet()) {
-            index++;
-            leaderboard
-                    .append("No. ")
-                    .append(index)
-                    .append(" - ")
-                    .append(entry.getKey())
-                    .append(" : ")
-                    .append(entry.getValue())
-                    .append("\n");
-        }
-
-        SimpleCard card = new SimpleCard();
-        card.setTitle("Leaderboard");
-        card.setContent(leaderboard.toString());
-        return card;
     }
 }
