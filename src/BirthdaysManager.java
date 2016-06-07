@@ -54,11 +54,9 @@ public class BirthdaysManager {
      *            {@link Intent} for this request
      * @param session
      *            Speechlet {@link Session} for this request
-     * @param skillContext
      * @return response for the add player intent.
      */
-    public SpeechletResponse getAddBirthdayIntentResponse(Intent intent, Session session,
-            SkillContext skillContext) {
+    public SpeechletResponse getAddBirthdayIntentResponse(Intent intent, Session session) {
         // add a player to the current game,
         // terminate or continue the conversation based on whether the intent
         // is from a one shot command or not.
@@ -107,12 +105,9 @@ public class BirthdaysManager {
      *            {@link Intent} for this request
      * @param session
      *            {@link Session} for this request
-     * @param skillContext
-     *            {@link SkillContext} for this request
      * @return response for the help intent
      */
-    public SpeechletResponse getHelpIntentResponse(Intent intent, Session session,
-            SkillContext skillContext) {
+    public SpeechletResponse getHelpIntentResponse(Intent intent, Session session) {
         return getTellSpeechletResponse("help needed");
     }
 
@@ -123,13 +118,10 @@ public class BirthdaysManager {
      *            {@link Intent} for this request
      * @param session
      *            {@link Session} for this request
-     * @param skillContext
-     *            {@link SkillContext} for this request
      * @return response for the exit intent
      */
-    public SpeechletResponse getExitIntentResponse(Intent intent, Session session,
-            SkillContext skillContext) {
-        // TODO
+    public SpeechletResponse getExitIntentResponse(Intent intent, Session session) {
+        return getTellSpeechletResponse("exit");
     }
 
     /**

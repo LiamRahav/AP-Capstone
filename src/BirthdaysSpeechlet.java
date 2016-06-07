@@ -68,12 +68,8 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 public class BirthdaysSpeechlet implements Speechlet {
     private static final Logger log = LoggerFactory.getLogger(BirthdaysSpeechlet.class);
 
-    private AmazonDynamoDBClient amazonDynamoDBClient;
-
     private BirthdaysManager birthdaysManager;
-
-    private SkillContext skillContext;
-
+    
     @Override
     public void onSessionStarted(final SessionStartedRequest request, final Session session)
             throws SpeechletException {
@@ -81,10 +77,6 @@ public class BirthdaysSpeechlet implements Speechlet {
                 session.getSessionId());
 
         initializeComponents();
-
-        // if user said a one shot command that triggered an intent event,
-        // it will start a new session, and then we should avoid speaking too many words.
-        skillContext.setNeedsMoreHelp(false);
     }
 
     @Override
@@ -93,7 +85,6 @@ public class BirthdaysSpeechlet implements Speechlet {
         log.info("onLaunch requestId={}, sessionId={}", request.getRequestId(),
                 session.getSessionId());
 
-        skillContext.setNeedsMoreHelp(true);
         return birthdaysManager.getLaunchResponse(request, session);
     }
 
@@ -106,19 +97,19 @@ public class BirthdaysSpeechlet implements Speechlet {
 
         Intent intent = request.getIntent();
         if ("AddBirthdayIntent".equals(intent.getName())) {
-            return birthdaysManager.getAddBirthdayIntentResponse(intent, session, skillContext);
+            return birthdaysManager.getAddBirthdayIntentResponse(intent, session);
 
         } else if ("GetBirthdaysIntent".equals(intent.getName())) {
-            return birthdaysManager.getGetBirthdaysIntentResponse(intent, session, skillContext);
+            return birthdaysManager.getGetBirthdaysIntentResponse(intent, session);
 
         } else if ("AMAZON.HelpIntent".equals(intent.getName())) {
-            return birthdaysManager.getHelpIntentResponse(intent, session, skillContext);
+            return birthdaysManager.getHelpIntentResponse(intent, session);
 
         } else if ("AMAZON.CancelIntent".equals(intent.getName())) {
-            return birthdaysManager.getExitIntentResponse(intent, session, skillContext);
+            return birthdaysManager.getExitIntentResponse(intent, session);
 
         } else if ("AMAZON.StopIntent".equals(intent.getName())) {
-            return birthdaysManager.getExitIntentResponse(intent, session, skillContext);
+            return birthdaysManager.getExitIntentResponse(intent, session);
 
         } else {
             throw new IllegalArgumentException("Unrecognized intent: " + intent.getName());
@@ -137,10 +128,6 @@ public class BirthdaysSpeechlet implements Speechlet {
      * Initializes the instance components if needed.
      */
     private void initializeComponents() {
-        if (amazonDynamoDBClient == null) {
-            amazonDynamoDBClient = new AmazonDynamoDBClient();
-            birthdaysManager = new BirthdaysManager(amazonDynamoDBClient);
-            skillContext = new SkillContext();
-        }
+        birthdaysManager = new BirthdaysManager();
     }
 }
