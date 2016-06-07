@@ -40,12 +40,11 @@ public class BirthdaysManager {
      */
     private static final String BIRTHDAY = "Birthday";
 
-    private BirthdaysDynamoDbClient dynamoDbClient;
+    ArrayList<Birthday> birthdays;
 
 
-
-    public BirthdaysManager(final AmazonDynamoDBClient amazonDynamoDbClient) {
-        dynamoDbClient = new BirthdaysDynamoDbClient(amazonDynamoDbClient);
+    public BirthdaysManager() {
+        birthdays = new ArrayList<>();
     }
 
     /**
@@ -76,7 +75,7 @@ public class BirthdaysManager {
         }
 
         Birthday newBirthday = new Birthday(newBirthdayUser, newBirthdayDate);
-        dynamoDbClient.saveBirthday(newBirthday);
+        birthdays.add(newBirthday);
 
         String speechText = "You added a birthday for " + newBirthdayUser + " on " + newBirthdayDate;
         return getTellSpeechletResponse(speechText);
@@ -93,11 +92,9 @@ public class BirthdaysManager {
      */
     public SpeechletResponse getTellScoresIntentResponse(Intent intent, Session session) {
         // tells the scores in the leaderboard and send the result in card.
-        ArrayList<Birthday> todaysBirthdays = dynamoDbClient.loadBirthday();
+        String speechText = getUsers(birthdays);
 
-        String speechText = getUsers(todaysBirthdays);
-
-        PlainTextOutputSpeech speech = new PlainTextOutputSeech();
+        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
         speech.setText(speechText);
 
         return SpeechletResponse.newTellResponse(speech);
@@ -132,9 +129,7 @@ public class BirthdaysManager {
      */
     public SpeechletResponse getExitIntentResponse(Intent intent, Session session,
             SkillContext skillContext) {
-        return skillContext.needsMoreHelp() ? getTellSpeechletResponse("Okay. Whenever you're "
-                + "ready, you can start giving points to the players in your game.")
-                : getTellSpeechletResponse("");
+        // TODO
     }
 
     /**

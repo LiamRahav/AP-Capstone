@@ -4,6 +4,13 @@ package storage;/*
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
+import com.amazonaws.transform.MapEntry;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class BirthdaysDynamoDbClient {
     private final AmazonDynamoDBClient dynamoDBClient;
