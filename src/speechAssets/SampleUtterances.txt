@@ -1,11 +1,3 @@
-AddBirthdayIntent add a birthday
-AddBirthdayIntent I want to add a birthday
-AddBirthdayIntent add a new birthday
-AddBirthdayIntent I want to add a new birthday
-AddBirthdayIntent enter a new birthday
-AddBirthdayIntent I want to enter a birthday
-AddBirthdayIntent I want to enter a new birthday
-
 GetBirthdaysIntent who has a birthday
 GetBirthdaysIntent who has a birthday today
 GetBirthdaysIntent who's birthday is it

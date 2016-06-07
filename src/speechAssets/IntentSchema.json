@@ -1,9 +1,6 @@
 {
   "intents": [
     {
-      "intent": "AddBirthdayIntent"
-    },
-    {
       "intent": "GetBirthdaysIntent"
     },
     {
