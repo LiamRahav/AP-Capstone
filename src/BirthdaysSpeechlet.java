@@ -118,7 +118,98 @@ public class BirthdaysSpeechlet implements Speechlet{
         birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MARCH, 30), "Paul Revere"));
         birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MARCH, 31), "Paul Revere"));
 
-        birthdays.add(new Birthday(new GregorianCalendar(1977, Calendar.JUNE, 8), "Kanye West"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 1), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 2), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 3), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 4), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 5), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 6), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 7), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 8), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 9), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 10), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 11), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 12), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 13), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 14), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 15), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 16), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 17), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 18), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 19), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 20), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 21), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 22), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 23), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 24), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 25), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 26), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 27), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 28), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 29), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 30), "Paul Revere"));
+
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 1), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 2), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 3), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 4), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 5), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 6), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 7), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 8), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 9), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 10), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 11), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 12), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 13), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 14), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 15), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 16), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 17), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 18), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 19), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 20), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 21), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 22), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 23), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 24), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 25), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 26), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 27), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 28), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 29), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 30), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.MAY, 31), "Paul Revere"));
+
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 1), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 2), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 3), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 4), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 5), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 6), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 7), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1977, Calendar.JUNE, 8), "Kanye West"));        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 9), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 10), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 11), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 12), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 13), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 14), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 15), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 16), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 17), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 18), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 19), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 20), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 21), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 22), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 23), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 24), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 25), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 26), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 27), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 28), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 29), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 30), "Paul Revere"));
         // Repeat 365 more times
     }
 
@@ -180,7 +271,7 @@ public class BirthdaysSpeechlet implements Speechlet{
         c.setTime(new Date());
 
         int index = birthdays.indexOf(c.DAY_OF_YEAR - 1);
-        String speechText = birthdays.get(index).name + " was born today in " + c.YEAR + ".";
+        String speechText = birthdays.get(index).name + " was born today in " + birthdays.get(index).date.YEAR + ".";
 
         // Create the Simple card content.
         SimpleCard card = new SimpleCard();
