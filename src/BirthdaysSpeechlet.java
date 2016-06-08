@@ -1,21 +1,30 @@
+import com.amazon.speech.slu.Intent;
 import com.amazon.speech.speechlet.*;
 import com.amazon.speech.ui.PlainTextOutputSpeech;
 import com.amazon.speech.ui.Reprompt;
+import com.amazon.speech.ui.SimpleCard;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
+import java.util.*;
 
 public class BirthdaysSpeechlet implements Speechlet{
     private static final Logger log = LoggerFactory.getLogger(BirthdaysSpeechlet.class);
 
-    private HashMap<Calendar, String> birthdays = new HashMap<>();
+    private class Birthday {
+        public Calendar date;
+        public String name;
+
+        public Birthday (Calendar date, String name){
+            this.date = date;
+            this.name = name;
+        }
+    }
+
+    private ArrayList<Birthday> birthdays = new ArrayList<>();
 
     public BirthdaysSpeechlet() {
-        birthdays.put(new GregorianCalendar(1735, Calendar.JANUARY, 1), "Paul Revere");
+        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JANUARY, 1), "Paul Revere"));
         // Repeat 365 more times
     }
 
@@ -38,13 +47,57 @@ public class BirthdaysSpeechlet implements Speechlet{
     }
 
     @Override
-    public SpeechletResponse onIntent(IntentRequest intentRequest, Session session) throws SpeechletException {
-        return null;
+    public SpeechletResponse onIntent(IntentRequest request, Session session) throws SpeechletException {
+        log.info("onIntent requestId={}, sessionId={}", request.getRequestId(),
+                session.getSessionId());
+
+        Intent intent = request.getIntent();
+        String intentName = (intent != null) ? intent.getName() : null;
+
+        if ("GetBirthdaysIntent".equals(intentName)) {
+            return getBirthdays();
+
+        } else if ("AMAZON.HelpIntent".equals(intentName)) {
+            return getHelpResponse();
+
+        } else if ("AMAZON.StopIntent".equals(intentName)) {
+            PlainTextOutputSpeech outputSpeech = new PlainTextOutputSpeech();
+            outputSpeech.setText("Goodbye");
+
+            return SpeechletResponse.newTellResponse(outputSpeech);
+        } else if ("AMAZON.CancelIntent".equals(intentName)) {
+            PlainTextOutputSpeech outputSpeech = new PlainTextOutputSpeech();
+            outputSpeech.setText("Goodbye");
+
+            return SpeechletResponse.newTellResponse(outputSpeech);
+        } else {
+            throw new SpeechletException("Invalid Intent");
+        }
     }
 
     @Override
-    public void onSessionEnded(SessionEndedRequest sessionEndedRequest, Session session) throws SpeechletException {
+    public void onSessionEnded(SessionEndedRequest request, Session session) throws SpeechletException {
+        log.info("onSessionEnded requestId={}, sessionId={}", request.getRequestId(),
+                session.getSessionId());
+    }
 
+    private SpeechletResponse getBirthdays() {
+        Calendar c = new GregorianCalendar();
+        c.setTime(new Date());
+
+        int index = birthdays.indexOf(c.DAY_OF_YEAR - 1);
+        String speechText = birthdays.get(index).name + " was born today in " + c.YEAR + ".";
+
+        // Create the Simple card content.
+        SimpleCard card = new SimpleCard();
+        card.setTitle("SpaceGeek");
+        card.setContent(speechText);
+
+        // Create the plain text output.
+        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+        speech.setText(speechText);
+
+        return SpeechletResponse.newTellResponse(speech, card);
     }
 
     private SpeechletResponse newAskResponse(String stringOutput, String repromptText) {
@@ -57,5 +110,20 @@ public class BirthdaysSpeechlet implements Speechlet{
         reprompt.setOutputSpeech(repromptOutputSpeech);
 
         return SpeechletResponse.newAskResponse(outputSpeech, reprompt);
+    }
+
+    private SpeechletResponse getHelpResponse() {
+        String speechText = "You can ask who has a birthday today, or, you can say exit. " +
+                "What can I help you with?";
+
+        // Create the plain text output.
+        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+        speech.setText(speechText);
+
+        // Create reprompt
+        Reprompt reprompt = new Reprompt();
+        reprompt.setOutputSpeech(speech);
+
+        return SpeechletResponse.newAskResponse(speech, reprompt);
     }
 }
