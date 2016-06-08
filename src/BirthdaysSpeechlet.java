@@ -270,12 +270,21 @@ public class BirthdaysSpeechlet implements Speechlet{
         Calendar c = new GregorianCalendar();
         c.setTime(new Date());
 
-        int index = birthdays.indexOf(c.DAY_OF_YEAR - 1);
-        String speechText = birthdays.get(index).name + " was born today in " + birthdays.get(index).date.YEAR + ".";
+        String speechText = "";
+        Birthday birthday = null;
+        for (int i = 0; i < birthdays.size(); i++) {
+            if (c.MONTH == birthdays.get(i).date.MONTH && c.DATE == birthdays.get(i).date.DATE)
+                birthday = birthdays.get(i);
+        }
+        if (birthday != null)
+            speechText = birthday.name + " was born today in " + birthday.date.YEAR + ".";
+
+        if (speechText.equals(""))
+            speechText = "error";
 
         // Create the Simple card content.
         SimpleCard card = new SimpleCard();
-        card.setTitle("SpaceGeek");
+        card.setTitle("Today's Birthday");
         card.setContent(speechText);
 
         // Create the plain text output.
