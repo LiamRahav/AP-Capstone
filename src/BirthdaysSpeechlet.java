@@ -1,4 +1,6 @@
 import com.amazon.speech.speechlet.*;
+import com.amazon.speech.ui.PlainTextOutputSpeech;
+import com.amazon.speech.ui.Reprompt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +27,14 @@ public class BirthdaysSpeechlet implements Speechlet{
     @Override
     public SpeechletResponse onLaunch(LaunchRequest launchRequest, Session session) throws SpeechletException {
         log.info("onSessionStarted requestId={}, sessionId={}", launchRequest.getRequestId(), session.getSessionId());
-        return null;
+
+        String speechOutput = "Ask me who has a birthday today.";
+        // If the user either does not reply to the welcome message or says
+        // something that is not understood, they will be prompted again with this text.
+        String repromptText = "You can ask, who has a birthday today?";
+
+        // Here we are prompting the user for input
+        return newAskResponse(speechOutput, repromptText);
     }
 
     @Override
@@ -36,5 +45,17 @@ public class BirthdaysSpeechlet implements Speechlet{
     @Override
     public void onSessionEnded(SessionEndedRequest sessionEndedRequest, Session session) throws SpeechletException {
 
+    }
+
+    private SpeechletResponse newAskResponse(String stringOutput, String repromptText) {
+        PlainTextOutputSpeech outputSpeech = new PlainTextOutputSpeech();
+        outputSpeech.setText(stringOutput);
+
+        PlainTextOutputSpeech repromptOutputSpeech = new PlainTextOutputSpeech();
+        repromptOutputSpeech.setText(repromptText);
+        Reprompt reprompt = new Reprompt();
+        reprompt.setOutputSpeech(repromptOutputSpeech);
+
+        return SpeechletResponse.newAskResponse(outputSpeech, reprompt);
     }
 }

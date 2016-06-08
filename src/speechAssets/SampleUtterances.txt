@@ -1,7 +1,7 @@
 GetBirthdaysIntent who has a birthday
 GetBirthdaysIntent who has a birthday today
-GetBirthdaysIntent who's birthday is it
-GetBirthdaysIntent who's birthday is it today
+GetBirthdaysIntent whose birthday is it
+GetBirthdaysIntent whose birthday is it today
 GetBirthdaysIntent what birthdays are today
 GetBirthdaysIntent does anyone have a birthday
 GetBirthdaysIntent does anyone have a birthday today
