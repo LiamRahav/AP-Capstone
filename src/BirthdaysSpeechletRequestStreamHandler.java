@@ -14,7 +14,7 @@ public class BirthdaysSpeechletRequestStreamHandler extends SpeechletRequestStre
          * Alexa Skill and put the relevant Application Ids in this Set.
          */
         supportedApplicationIds = new HashSet<String>();
-        // supportedApplicationIds.add("amzn1.echo-sdk-ams.app.[unique-value-here]");
+        supportedApplicationIds.add("amzn1.echo-sdk-ams.app.f5ad9710-4e6f-4a2e-8a5f-aceb7033fcf2");
     }
 
     public BirthdaysSpeechletRequestStreamHandler() {
