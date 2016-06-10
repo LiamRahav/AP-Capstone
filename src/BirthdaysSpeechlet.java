@@ -188,9 +188,10 @@ public class BirthdaysSpeechlet implements Speechlet{
         birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 5), "Paul Revere"));
         birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 6), "Paul Revere"));
         birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 7), "Paul Revere"));
-        birthdays.add(new Birthday(new GregorianCalendar(1977, Calendar.JUNE, 8), "Kanye West"));        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.APRIL, 9), "Paul Revere"));
-        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 10), "Paul Revere"));
-        birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 11), "Paul Revere"));
+        birthdays.add(new Birthday(new GregorianCalendar(1977, Calendar.JUNE, 8), "Kanye West"));
+        birthdays.add(new Birthday(new GregorianCalendar(1963, Calendar.JUNE, 9), "Johhny Depp"));
+        birthdays.add(new Birthday(new GregorianCalendar(1992, Calendar.JUNE, 10), "Kate Upton"));
+        birthdays.add(new Birthday(new GregorianCalendar(1969, Calendar.JUNE, 11), "Peter Dinklage"));
         birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 12), "Paul Revere"));
         birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 13), "Paul Revere"));
         birthdays.add(new Birthday(new GregorianCalendar(1735, Calendar.JUNE, 14), "Paul Revere"));
