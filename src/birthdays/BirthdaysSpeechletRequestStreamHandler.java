@@ -1,4 +1,5 @@
-import com.amazon.speech.speechlet.Speechlet;
+package birthdays;
+
 import com.amazon.speech.speechlet.lambda.SpeechletRequestStreamHandler;
 
 import java.util.HashSet;

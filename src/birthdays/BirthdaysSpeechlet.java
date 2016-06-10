@@ -1,3 +1,5 @@
+package birthdays;
+
 import com.amazon.speech.slu.Intent;
 import com.amazon.speech.speechlet.*;
 import com.amazon.speech.ui.PlainTextOutputSpeech;
